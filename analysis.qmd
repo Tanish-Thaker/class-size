@@ -2,14 +2,26 @@
 title: "Analysis"
 author: "Tanish Thaker"
 format: html
+execute: 
+  echo: false
 ---
 
 ```{r}
+#| message: false
 library(tidyverse)
 library(primer.data)
 ```
 
 ```{r}
-read_csv("data/STAR.csv")
+star <- read_csv("data/STAR.csv", show_col_types = FALSE)
 ```
 
+Question: How does class size in K-4 school classes affect student performances?
+
+Quantity of Interest: Student Scores
+
+Preceptor Table: 
+Units- Each Student
+Outcome- Math and Reading Scores
+Covariate- YearsSmall
+Treatment- Different Class Size
