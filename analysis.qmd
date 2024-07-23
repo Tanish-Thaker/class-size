@@ -4,3 +4,12 @@ author: "Tanish Thaker"
 format: html
 ---
 
+```{r}
+library(tidyverse)
+library(primer.data)
+```
+
+```{r}
+read_csv("data/STAR.csv")
+```
+
