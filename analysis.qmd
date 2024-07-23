@@ -16,12 +16,22 @@ library(primer.data)
 star <- read_csv("data/STAR.csv", show_col_types = FALSE)
 ```
 
-Question: How does class size in K-4 school classes affect student performances?
+Question: How does class size in K-4 school classes affect student performances? (Causal Affect)
 
 Quantity of Interest: Student Scores
 
 Preceptor Table: 
 Units- Each Student
-Outcome- Math and Reading Scores
-Covariate- YearsSmall
+Outcome- g4math
+Covariate- YearsSmall, classtype
 Treatment- Different Class Size
+
+Population Table: 
+Time- Year
+
+4 Key Assumptions with one counter for each:
+Validity- Math scores calculated differently across schools in the US
+Stability- Education System is different in diffferent schools and times
+Unconfoundedness- Schools selected are schools in districts that have better grades
+Representativeness- Only data in Tenessee which doesn't represent the US
+
