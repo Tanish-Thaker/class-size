@@ -33,9 +33,21 @@ x <- star |>
 ```
 
 ```{r}
-x |>
+x <- x |>
   select(kinder, race, g4math) |>
-  drop_na(g4math)
+  drop_na(g4math) |>
+  filter(kinder != "regular with aid")
+```
+
+```{r}
+#| cache: true
+
+fit_cs <- brm(formula = g4math ~ kinder,
+                 data = x,
+                 family = gaussian(),
+                 refresh = 0,
+                 silent = 2,
+                 seed = 9)
 ```
 
 
