@@ -8,13 +8,36 @@ execute:
 
 ```{r}
 #| message: false
+#| label: setup
+
 library(tidyverse)
 library(primer.data)
+library(brms)
+library(tidybayes)
 ```
 
 ```{r}
-star <- read_csv("data/STAR.csv", show_col_types = FALSE)
+star <- read_csv("data/STAR.csv")
 ```
+
+```{r}
+x <- star |>
+  mutate(kinder = factor(classtype, 
+                         levels = c(1, 2, 3), 
+                         labels = c("small", "regular", "regular with aid")),
+         race = factor(race, 
+                       levels = c(1, 2, 3, 4, 5, 6), 
+                       labels = c("white", "black", "asian", "hispanic", "native_american", "others")),
+         race = fct_collapse(race,
+                             others = c("asian", "native_american", "others")))
+```
+
+```{r}
+x |>
+  select(kinder, race, g4math) |>
+  drop_na(g4math)
+```
+
 
 Question: How does class size in K-4 school classes affect student performances? (Causal Affect)
 

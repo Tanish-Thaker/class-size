@@ -69,6 +69,43 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'brms' was built under R version 4.4.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidybayes' was built under R version 4.4.1</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 6325 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (6): race, classtype, yearssmall, hsgrad, g4math, g4reading
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2,395 × 3
+   kinder           race  g4math
+   &lt;fct&gt;            &lt;fct&gt;  &lt;dbl&gt;
+ 1 regular with aid black    706
+ 2 regular with aid white    711
+ 3 small            black    672
+ 4 small            white    668
+ 5 small            white    709
+ 6 regular          white    698
+ 7 regular with aid white    733
+ 8 small            white    740
+ 9 regular with aid white    716
+10 regular          white    758
+# ℹ 2,385 more rows</code></pre>
+</div>
+</div>
 <p>Question: How does class size in K-4 school classes affect student performances? (Causal Affect)</p>
 <p>Quantity of Interest: Student Scores</p>
 <p>Preceptor Table: Units- Each Student Outcome- g4math Covariate- YearsSmall, classtype Treatment- Different Class Size</p>
