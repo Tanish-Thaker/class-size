@@ -68,6 +68,24 @@ ggplot(aes(x = g4math, fill = as.factor(kinder))) +
   theme_minimal()
 ```
 
+```{r}
+ndata <- tibble(kinder = c("small", "regular"))
+
+newstar <- fit_cs|>
+  add_epred_draws(newdata = ndata)
+newstar
+
+newstar |>
+ggplot(aes(x = .epred, fill = as.factor(kinder))) +
+  geom_density(alpha = 0.5) +
+  theme(aspect.ratio = 0.5) +
+  labs(title = "Posterior for Exam Score",
+       subtitle = "Class size has no effect on exam score",
+       x = "Exam Score",
+       fill = "Classroom Size") +
+  theme_minimal()
+```
+
 
 Question: How does class size in K-4 school classes affect student performances? (Causal Affect)
 

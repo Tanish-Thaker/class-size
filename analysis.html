@@ -135,6 +135,32 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <pre><code>NULL</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8,000 × 6
+# Groups:   kinder, .row [2]
+   kinder  .row .chain .iteration .draw .epred
+   &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;      &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;
+ 1 small      1     NA         NA     1   709.
+ 2 small      1     NA         NA     2   708.
+ 3 small      1     NA         NA     3   711.
+ 4 small      1     NA         NA     4   709.
+ 5 small      1     NA         NA     5   707.
+ 6 small      1     NA         NA     6   707.
+ 7 small      1     NA         NA     7   710.
+ 8 small      1     NA         NA     8   710.
+ 9 small      1     NA         NA     9   710.
+10 small      1     NA         NA    10   709.
+# ℹ 7,990 more rows</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <p>Question: How does class size in K-4 school classes affect student performances? (Causal Affect)</p>
 <p>Quantity of Interest: Student Scores</p>
 <p>Preceptor Table: Units- Each Student Outcome- g4math Covariate- YearsSmall, classtype Treatment- Different Class Size</p>
