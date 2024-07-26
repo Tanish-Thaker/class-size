@@ -56,23 +56,10 @@ pp_check(fit_cs)
 ```
 
 ```{r}
-x |>
-ggplot(aes(x = g4math, fill = as.factor(kinder))) +
-  geom_density(alpha = 0.5) +
-  scale_fill_manual(values = c("#00BA38", "#F8766D")) +
-  theme(aspect.ratio = 0.5)
-  labs(title = "Posterior for Exam Score",
-       subtitle = "Class size has no effect on exam score",
-       x = "Exam Score",
-       fill = "Classroom Size") +
-  theme_minimal()
-```
-
-```{r}
 ndata <- tibble(kinder = c("small", "regular"))
 
 newstar <- fit_cs|>
-  add_epred_draws(newdata = ndata)
+  add_epred_draws(newdata = ndata) 
 newstar
 
 newstar |>
@@ -86,6 +73,22 @@ ggplot(aes(x = .epred, fill = as.factor(kinder))) +
   theme_minimal()
 ```
 
+```{r}
+newstar |> pivot_wider(id_cols = .draw, names_from = kinder, values_from = .epred) |> 
+  mutate(causal_effect = small - regular) |> 
+  ggplot(aes(x = causal_effect)) +
+    geom_density() +
+    labs(
+      title = "Posterior for the Causal Effect of Fewer Students",
+      subtitle = "Classes with fewer students do not have higher scores",
+      x = "Expected Difference in Exam Scores") +
+    theme(aspect.ratio = 0.25,
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_blank())
+```
+
+Formula: $$ score_i = \beta_0 + \beta_1 class\_size $$
 
 Question: How does class size in K-4 school classes affect student performances? (Causal Affect)
 
